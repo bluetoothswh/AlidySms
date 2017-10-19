@@ -11,7 +11,7 @@ composer require laramall/aliyun-dysms
 ````
 # 设置配置文件
 ````
-php artisan vendor:publish
+php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider"
 
 修改 config/sms.php 中的阿里大于短信相关参数
 ````
