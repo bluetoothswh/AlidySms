@@ -15,7 +15,7 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 
 修改 config/sms.php 中的阿里大于短信相关参数
 
-  //id
+  	//id
 	'ACCESS_KEY_ID'=>'',
 	//秘钥
 	'ACCESS_KEY_SECRET'=>'',
