@@ -1,11 +1,11 @@
 # AlidySms
 <p>新版阿里大于短信接口的Laravel组件 （支持laravel5.5）</p>
 
+<img src="https://laravip.com/images/alidysms.png">
+
 # 安装
 ````
 composer require laramall/aliyun-dysms
-
-
 ````
 # 设置配置文件
 ````
