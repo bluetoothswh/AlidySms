@@ -3,7 +3,7 @@
     "type": "package",
     "description": "新版阿里大于短信接口 for laravel5.5+",
     "keywords": ["阿里大于", "laravel5.5", "aliyun dysms sdk"],
-    "homepage": "https://github.com/bluetoothswh/AlidysmsForLaravel.git",
+    "homepage": "https://github.com/bluetoothswh/AlidySms.git",
     "license": "MIT",
     "authors": [
         {
