@@ -1,0 +1,36 @@
+{
+    "name": "laramall/aliyun-dysms",
+    "type": "package",
+    "description": "新版阿里大于短信接口 for laravel5.5+",
+    "keywords": ["阿里大于", "laravel5.5", "aliyun dysms sdk"],
+    "homepage": "https://github.com/bluetoothswh/AlidysmsForLaravel.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Sun",
+            "email": "bluetooth_swh@163.com",
+            "homepage": "https://larashuo.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaraMall\\AlidySms\\": "src/",
+            "Aliyun\\":"src/lib"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraMall\\AlidySms\\AlidySmsServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    }
+}
