@@ -27,7 +27,7 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 
 # 使用
 ````
-use LaraMall\AlidySms\Sms;
+use Sms;
 
 //发送短信
 $sms  = (new Sms)->put('phone','13800000000')->send();
