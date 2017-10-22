@@ -27,10 +27,10 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 
 # 使用
 ````
-use LaraMall\AlidySms\Sms;
+use Sms;
 
 //发送短信
-$sms  = (new Sms)->put('phone','13800000000')->send();
+(new Sms)->put('phone','13800000000')->send();
 
 //验证短信已写入表单验证规则
 //假设表单中短信验证码的字段为 code
