@@ -30,7 +30,9 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 use Sms;
 
 //发送短信
+//短信发送成功 下面函数返回 true 反之 false
 (new Sms)->put('phone','13800000000')->send();
+
 
 //验证短信已写入表单验证规则
 //假设表单中短信验证码的字段为 code
