@@ -29,7 +29,7 @@
                 "LaraMall\\AlidySms\\AlidySmsServiceProvider"
             ],
             "aliases": {
-                "Sms": "LaraMall\\AlidySms\\Sms"
+                "Sms": "LaraMall\\AlidySms\\Facades\\Sms"
             }
         }
     }

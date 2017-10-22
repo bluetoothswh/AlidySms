@@ -37,5 +37,6 @@ class AlidySmsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/sms.php', 'sms'
         );
+        $this->app->bind('sms','LaraMall\AlidySms\Sms');
     }
 }

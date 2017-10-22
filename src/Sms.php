@@ -65,7 +65,7 @@ class Sms
                                 "123"
         );
         //短信发送成功
-        if($response->Code =='ok'){
+        if($response->Code =='OK'){
             //把验证码加入到会话中
             session()->put($this->sessionKey(),$number); 
             return true;
