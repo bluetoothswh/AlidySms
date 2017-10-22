@@ -1,11 +1,11 @@
 <?php
 return [
 	//id
-	'ACCESS_KEY_ID'=>'',
+	'ACCESS_KEY_ID'=>env('ACCESS_KEY_ID'),
 	//秘钥
-	'ACCESS_KEY_SECRET'=>'',
+	'ACCESS_KEY_SECRET'=>env('ACCESS_KEY_SECRET'),
 	//短信签名
-	'signName'=>'',
+	'signName'=>env('signName'),
 	//短信模板编号
-	'templateCode'=>'',
+	'templateCode'=>env('templateCode'),
 ];

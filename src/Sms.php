@@ -52,7 +52,6 @@ class Sms
     |-------------------------------------------------------------------------------
     */
     public function send(){
-
         $number     = rand(1000,9999);
         $demo       = new Alidayu(config('sms.ACCESS_KEY_ID'),config('sms.ACCESS_KEY_SECRET'));
         $response   = $demo->sendSms(
@@ -65,9 +64,14 @@ class Sms
                                 ],
                                 "123"
         );
-        
-        //把验证码加入到会话中
-        session()->put($this->sessionKey(),$number); 
+        //短信发送成功
+        if($response->Code =='ok'){
+            //把验证码加入到会话中
+            session()->put($this->sessionKey(),$number); 
+            return true;
+        }
+        //发送失败
+        return false;
     }
 
 
@@ -79,7 +83,6 @@ class Sms
     |-------------------------------------------------------------------------------
     */
     public function destroy(){
-
     	session()->forget($this->sessionKey());
     }
 
