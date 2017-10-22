@@ -5,6 +5,14 @@
 
 <img src="https://laravip.com/images/alidysms.png">
 
+# 系统要求
+````
+php >= 7.1+
+
+laravel5.5+
+
+````
+
 # 安装
 ````
 composer require laramall/aliyun-dysms
