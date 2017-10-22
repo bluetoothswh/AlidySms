@@ -9,7 +9,7 @@
 ````
 php >= 7.0+
 
-laravel5.5+
+laravel >= 5.5+
 
 ````
 
