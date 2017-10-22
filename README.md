@@ -1,5 +1,5 @@
 # AlidySms
-<p>新版阿里大于短信接口的Laravel组件 （支持laravel5.5）</p>
+<p>新版阿里大于短信接口的Laravel组件 for Laravel 5.5+ </p>
 
 网址：<a href="https://larashuo.com">larashuo.com</a>
 
