@@ -38,8 +38,9 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 use Sms;
 
 //发送短信
+//使用Laravel的Facade
 //短信发送成功 下面函数返回 true 反之 false
-(new Sms)->put('phone','13800000000')->send();
+Sms::put('phone','13800000000')->send();
 
 
 //验证短信已写入表单验证规则
