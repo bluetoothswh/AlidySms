@@ -5,8 +5,14 @@ use LaraMall\AlidySms\Alidayu;
 
 class Sms
 {
-	protected $phone;
-	protected $key;
+    //手机号码
+    protected $phone;
+    //session key
+    protected $key;
+    //短信模板中的字段
+    protected $field;
+    //短信内容
+    protected $content;
 	/*
     |-------------------------------------------------------------------------------
     |
@@ -14,8 +20,12 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function __construct(){
-    	
+    public function __construct()
+    {
+    	   //设置短信模板中的字段默认为 number
+           $this->field             = 'number';
+           //设置短信验证码的内容
+           $this->content           = rand(1000,9999);
     }
 
     /*
@@ -25,7 +35,8 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function put($key,$value){
+    public function put($key,$value)
+    {
     	$this->$key 		= $value;
     	return $this;
     }
@@ -51,15 +62,15 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function send(){
-        $number     = rand(1000,9999);
+    public function send()
+    {
         $demo       = new Alidayu(config('sms.ACCESS_KEY_ID'),config('sms.ACCESS_KEY_SECRET'));
         $response   = $demo->sendSms(
                                 config('sms.signName'), // 短信签名
                                 config('sms.templateCode'), // 短信模板编号
                                 $this->phone, // 短信接收者
                                 [  // 短信模板中字段的值
-                                        "number"=>$number,
+                                        $this->field => $this->content,
                                         "product"=>""
                                 ],
                                 "123"
@@ -67,7 +78,7 @@ class Sms
         //短信发送成功
         if($response->Code =='OK'){
             //把验证码加入到会话中
-            session()->put($this->sessionKey(),$number); 
+            session()->put($this->sessionKey(),$this->content); 
             return true;
         }
         //发送失败

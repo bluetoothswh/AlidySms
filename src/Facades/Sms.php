@@ -1,7 +1,6 @@
 <?php
 
 namespace LaraMall\AlidySms\Facades;
-
 use Illuminate\Support\Facades\Facade;
 
 /**
