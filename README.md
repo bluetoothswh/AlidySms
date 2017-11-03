@@ -34,6 +34,9 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 ````
 
 # 使用
+
+<img src="http://ox5dwi7xi.bkt.clouddn.com/github/tempalte-cover.png">
+
 ````
 use Sms;
 
@@ -41,6 +44,16 @@ use Sms;
 //使用Laravel的Facade
 //短信发送成功 下面函数返回 true 反之 false
 Sms::put('phone','13800000000')->send();
+
+//默认 短信模板中的字段为 number 
+//默认 短信的内容为 rand(1000,9999)
+
+如果您的短信模板中字段不为 number 可以这样设置
+
+Sms::put('phone',$phone)
+   ->put('field',$field)
+   ->put('content',$content)
+   ->send();
 
 ````
 
