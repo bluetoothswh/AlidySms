@@ -50,6 +50,11 @@ Sms::put('phone','13800000000')->send();
 
 如果您的短信模板中字段不为 number 可以这样设置
 
+$field 为短信模板中的变量（如上图中为 number）
+$content 为短信验证码内容
+
+$field 和 $content 都有默认值，也可以通过链式操作自定义
+
 Sms::put('phone',$phone)
    ->put('field',$field)
    ->put('content',$content)
