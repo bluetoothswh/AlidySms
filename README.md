@@ -35,7 +35,7 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 
 # 使用
 
-<img src="http://ox5dwi7xi.bkt.clouddn.com/github/tempalte-cover.png">
+<img src="http://ox5dwi7xi.bkt.clouddn.com/github/sms-tp.png">
 
 ````
 use Sms;
