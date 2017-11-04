@@ -13,6 +13,10 @@ class Sms
     protected $field;
     //短信内容
     protected $content;
+    //模板签名
+    protected $signName;
+    //短信模板编号
+    protected $templateCode;
 	/*
     |-------------------------------------------------------------------------------
     |
@@ -26,6 +30,10 @@ class Sms
            $this->field             = 'number';
            //设置短信验证码的内容
            $this->content           = rand(1000,9999);
+           //初始化短信签名
+           $this->signName          = config('sms.signName');
+           //初始化短信模板编号
+           $this->templateCode      = config('sms.templateCode');
     }
 
     /*
@@ -66,12 +74,12 @@ class Sms
     {
         $demo       = new Alidayu(config('sms.ACCESS_KEY_ID'),config('sms.ACCESS_KEY_SECRET'));
         $response   = $demo->sendSms(
-                                config('sms.signName'), // 短信签名
-                                config('sms.templateCode'), // 短信模板编号
-                                $this->phone, // 短信接收者
-                                [  // 短信模板中字段的值
-                                        $this->field => $this->content,
-                                        "product"=>""
+                                $this->signName,           // 短信签名
+                                $this->templateCode,       // 短信模板编号
+                                $this->phone,              // 短信接收者
+                                [                         // 短信模板中字段的值
+                                    $this->field => $this->content,
+                                    "product"=>""
                                 ],
                                 "123"
         );
