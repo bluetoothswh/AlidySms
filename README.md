@@ -74,6 +74,37 @@ Sms::put('content',rand(1000,9999);
 
 ````
 
+# 默认短信签名和短信模板编号
+````
+默认短信签名写在 config/sms.php 中的
+
+'signName'=>'您的短信签名',
+
+默认短信模板编号 config/sms.php 
+'templateCode'=>'您的短信模板编号'
+
+````
+
+# 自定义短信签名 和短信模板编号
+
+````
+  Sms::put('signName',$signName)
+     ->put('templateCoade',$templateCoade);
+
+````
+
+# 所有参数完全自定义发送短信模式
+
+````
+Sms::put('phone',$phone) //接受短信的手机号
+   ->put('signName',$signName) //短信签名
+   ->put('templateCode',$templateCode) //短信模板编号
+   ->put('filed',$field) //短信模板中的变量字段
+   ->put('content',$content) //短信中的变量的值 也就是验证码的内容
+   ->send(); //发送短信
+
+````
+
 //验证短信已写入表单验证规则
 //假设表单中短信验证码的字段为 code
 
