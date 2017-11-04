@@ -43,16 +43,9 @@ use Sms;
 //短信发送成功 下面函数返回 true 反之 false
 Sms::put('phone','13800000000')->send();
 
-//默认 短信模板中的字段为 number 
-//默认 短信的内容为 rand(1000,9999)
-//如果您的短信模板中字段不为 number 可以这样设置
 
 $field 为短信模板中的变量（如上图中为 number）
 $content 为短信验证码内容
-
-$field 和 $content 都有默认值，也可以通过链式操作自定义
-$field     默认值为 'number'
-$content   默认值为 rand(1000,9999)
 
 Sms::put('phone',$phone)
    ->put('field',$field)
@@ -65,6 +58,19 @@ Sms::put('phone',$phone)
 
 ````
 rand(1000,9999) 一个随机数字
+
+相当于做了设置
+Sms::put('content',rand(1000,9999);
+
+````
+
+# 默认模板中的变量
+
+````
+ 默认为 number
+ 
+ 相当于
+ Sms::put('field','number');
 
 ````
 
