@@ -27,9 +27,9 @@ class Sms
     public function __construct()
     {
     	   //设置短信模板中的字段默认为 number
-           $this->field             = 'number';
+           $this->field             = config('sms.field');
            //设置短信验证码的内容
-           $this->content           = rand(1000,9999);
+           $this->content           = config('sms.content');
            //初始化短信签名
            $this->signName          = config('sms.signName');
            //初始化短信模板编号

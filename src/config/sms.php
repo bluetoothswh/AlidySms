@@ -8,4 +8,8 @@ return [
 	'signName'=>env('signName'),
 	//短信模板编号
 	'templateCode'=>env('templateCode'),
+	//短信模板中的字段
+	'field'=>'number',
+	//短信模板默认内容
+	'content'=>rand(1000,9999),
 ];
