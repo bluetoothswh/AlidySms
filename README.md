@@ -31,6 +31,10 @@ php artisan vendor:publish --provider="LaraMall\AlidySms\AlidySmsServiceProvider
 	'signName'=>'',
 	//短信模板编号
 	'templateCode'=>'',
+	//短信模板中变量字段
+	'field'=>'number',
+	//要发送的短信内容
+	'content'=>rand(1000,9999),
 ````
 
 # 使用
@@ -43,55 +47,8 @@ use Sms;
 //短信发送成功 下面函数返回 true 反之 false
 Sms::put('phone','13800000000')->send();
 
-
-$field 为短信模板中的变量（如上图中为 number）
-$content 为短信验证码内容
-
-Sms::put('phone',$phone)
-   ->put('field',$field)
-   ->put('content',$content)
-   ->send();
-
 ````
 
-# 默认短信验证码
-
-````
-rand(1000,9999) 一个随机数字
-
-相当于做了设置
-Sms::put('content',rand(1000,9999);
-
-````
-
-# 默认模板中的变量
-
-````
- 默认为 number
- 
- 相当于
- Sms::put('field','number');
-
-````
-
-# 默认短信签名和短信模板编号
-````
-默认短信签名写在 config/sms.php 中的
-
-'signName'=>'您的短信签名',
-
-默认短信模板编号 config/sms.php 
-'templateCode'=>'您的短信模板编号'
-
-````
-
-# 自定义短信签名 和短信模板编号
-
-````
-  Sms::put('signName',$signName)
-     ->put('templateCoade',$templateCoade);
-
-````
 
 # 所有参数完全自定义发送短信模式
 
