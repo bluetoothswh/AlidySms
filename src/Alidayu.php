@@ -67,7 +67,8 @@ class Alidayu
      * @param string|null $outId [optional] 选填, 发送短信流水号 (e.g. 1234)
      * @return stdClass
      */
-    public function sendSms($signName, $templateCode, $phoneNumbers, $templateParam = null, $outId = null) {
+    public function sendSms($signName, $templateCode, $phoneNumbers, $templateParam = null, $outId = null)
+    {
 
         // 初始化SendSmsRequest实例用于设置发送短信的参数
         $request = new SendSmsRequest();
@@ -82,12 +83,12 @@ class Alidayu
         $request->setTemplateCode($templateCode);
 
         // 可选，设置模板参数
-        if($templateParam) {
+        if ($templateParam) {
             $request->setTemplateParam(json_encode($templateParam));
         }
 
         // 可选，设置流水号
-        if($outId) {
+        if ($outId) {
             $request->setOutId($outId);
         }
 
@@ -98,7 +99,6 @@ class Alidayu
         // var_dump($acsResponse);
 
         return $acsResponse;
-
     }
 
     /**
@@ -111,7 +111,8 @@ class Alidayu
      * @param string $bizId 选填，短信发送流水号 (e.g. abc123)
      * @return stdClass
      */
-    public function queryDetails($phoneNumbers, $sendDate, $pageSize = 10, $currentPage = 1, $bizId=null) {
+    public function queryDetails($phoneNumbers, $sendDate, $pageSize = 10, $currentPage = 1, $bizId=null)
+    {
 
         // 初始化QuerySendDetailsRequest实例用于设置短信查询的参数
         $request = new QuerySendDetailsRequest();
@@ -139,5 +140,4 @@ class Alidayu
 
         return $acsResponse;
     }
-
 }

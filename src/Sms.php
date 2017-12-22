@@ -1,6 +1,7 @@
 <?php
 
 namespace LaraMall\AlidySms;
+
 use LaraMall\AlidySms\Alidayu;
 
 class Sms
@@ -17,7 +18,7 @@ class Sms
     protected $signName;
     //短信模板编号
     protected $templateCode;
-	/*
+    /*
     |-------------------------------------------------------------------------------
     |
     | 构造函数
@@ -26,14 +27,14 @@ class Sms
     */
     public function __construct()
     {
-    	   //设置短信模板中的字段默认为 number
-           $this->field             = config('sms.field');
-           //设置短信验证码的内容
-           $this->content           = config('sms.content');
-           //初始化短信签名
-           $this->signName          = config('sms.signName');
-           //初始化短信模板编号
-           $this->templateCode      = config('sms.templateCode');
+        //设置短信模板中的字段默认为 number
+        $this->field             = config('sms.field');
+        //设置短信验证码的内容
+        $this->content           = config('sms.content');
+        //初始化短信签名
+        $this->signName          = config('sms.signName');
+        //初始化短信模板编号
+        $this->templateCode      = config('sms.templateCode');
     }
 
     /*
@@ -43,10 +44,10 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function put($key,$value)
+    public function put($key, $value)
     {
-    	$this->$key 		= $value;
-    	return $this;
+        $this->$key 		= $value;
+        return $this;
     }
 
 
@@ -57,9 +58,9 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function sessionKey(){
-
-    	return $this->phone.'_auth_code_'.date('Y-m-d');
+    public function sessionKey()
+    {
+        return $this->phone.'_auth_code_'.date('Y-m-d');
     }
 
 
@@ -72,7 +73,7 @@ class Sms
     */
     public function send()
     {
-        $demo       = new Alidayu(config('sms.ACCESS_KEY_ID'),config('sms.ACCESS_KEY_SECRET'));
+        $demo       = new Alidayu(config('sms.ACCESS_KEY_ID'), config('sms.ACCESS_KEY_SECRET'));
         $response   = $demo->sendSms(
                                 $this->signName,           // 短信签名
                                 $this->templateCode,       // 短信模板编号
@@ -84,9 +85,9 @@ class Sms
                                 "123"
         );
         //短信发送成功
-        if($response->Code =='OK'){
+        if ($response->Code =='OK') {
             //把验证码加入到会话中
-            session()->put($this->sessionKey(),$this->content); 
+            session()->put($this->sessionKey(), $this->content);
             return true;
         }
         //发送失败
@@ -101,8 +102,9 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function destroy(){
-    	session()->forget($this->sessionKey());
+    public function destroy()
+    {
+        session()->forget($this->sessionKey());
     }
 
 
@@ -113,11 +115,12 @@ class Sms
     |
     |-------------------------------------------------------------------------------
     */
-    public function getCode(){
-    	if(session()->has($this->sessionKey())){
-    		return session()->get($this->sessionKey());
-    	}
-    	return false;
+    public function getCode()
+    {
+        if (session()->has($this->sessionKey())) {
+            return session()->get($this->sessionKey());
+        }
+        return false;
     }
 
     /*
@@ -129,11 +132,10 @@ class Sms
     */
     public function check($code)
     {
-        if($this->getCode() == $code ){
+        if ($this->getCode() == $code) {
             $this->destroy();
             return true;
         }
         return false;
     }
-
 }

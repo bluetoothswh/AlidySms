@@ -12,7 +12,7 @@ class AlidySmsServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {   
+    {
 
         //发布配置文件
         $this->publishes([
@@ -21,9 +21,8 @@ class AlidySmsServiceProvider extends ServiceProvider
 
         //添加短信的验证
         // Validator extensions
-        $this->app['validator']->extend('sms', function($attribute, $value, $parameters)
-        {
-            return (new Sms)->put('phone',request()->phone)->check($value);
+        $this->app['validator']->extend('sms', function ($attribute, $value, $parameters) {
+            return (new Sms)->put('phone', request()->phone)->check($value);
         });
     }
 
@@ -35,8 +34,9 @@ class AlidySmsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/config/sms.php', 'sms'
+            __DIR__.'/config/sms.php',
+            'sms'
         );
-        $this->app->bind('sms','LaraMall\AlidySms\Sms');
+        $this->app->bind('sms', 'LaraMall\AlidySms\Sms');
     }
 }
