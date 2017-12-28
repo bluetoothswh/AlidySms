@@ -12,4 +12,6 @@ return [
     'field'=>'number',
     //短信模板默认内容
     'content'=>rand(1000, 9999),
+    //短信模板中可选参数
+    'product'=> 'dsd',
 ];

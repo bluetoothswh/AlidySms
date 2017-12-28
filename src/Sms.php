@@ -18,6 +18,8 @@ class Sms
     protected $signName;
     //短信模板编号
     protected $templateCode;
+    //短信模板中可选参数
+    protected $product;
     /*
     |-------------------------------------------------------------------------------
     |
@@ -35,6 +37,8 @@ class Sms
         $this->signName          = config('sms.signName');
         //初始化短信模板编号
         $this->templateCode      = config('sms.templateCode');
+        //初始化短信模板中可选参数
+        $this->product           = config('sms.product');
     }
 
     /*
@@ -80,7 +84,7 @@ class Sms
                                 $this->phone,              // 短信接收者
                                 [                         // 短信模板中字段的值
                                     $this->field => $this->content,
-                                    "product"=>""
+                                    "product"=> $this->product,
                                 ],
                                 "123"
         );
